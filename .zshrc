@@ -10,6 +10,10 @@ fcd() {
     dir=$(find ${1:-.} -type d -not -path '*/\.*' 2> /dev/null | fzf +m) && cd "$dir"
 }
 
+sudo_nv() {
+    sudo nvim "$@"
+}
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -24,8 +28,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # all of the aliases
 alias git-log='git log --oneline --graph --all'
-alias git-log-develop='git log --oneline --graph --all develop...'
-alias vim='nvim'
+alias git-log-develop='git log --oneline --graph develop'
+alias nv='nvim'
+alias gss='git status -s'
+alias ga='git add .'
+alias gc='git commit -m'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load

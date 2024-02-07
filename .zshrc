@@ -22,6 +22,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# all of the aliases
+alias git-log='git log --oneline --graph --all'
+alias git-log-develop='git log --oneline --graph --all develop...'
+alias vim='nvim'
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/

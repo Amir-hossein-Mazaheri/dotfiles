@@ -31,7 +31,7 @@ alias git-log='git log --oneline --graph --all'
 alias git-log-develop='git log --oneline --graph develop'
 alias nv='nvim'
 alias gss='git status -s'
-alias ga='git add .'
+alias gaa='git add -A'
 alias gc='git commit -m'
 
 # Set list of themes to pick from when loading at random

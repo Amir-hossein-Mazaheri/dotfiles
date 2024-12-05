@@ -7,7 +7,7 @@
 sudo apt update -y
 
 # Preparation
-sudo apt install neovim curl git gh zsh tmux build-essential neofetch -y
+sudo apt install neovim curl git gh zsh tmux build-essential neofetch htop -y
 
 # Clone Config Files
 git clone https://github.com/Amir-hossein-Mazaheri/nvim-config.git /home/$(whoami)/.config/nvim
@@ -114,6 +114,18 @@ git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/
 sudo apt install bat -y
 git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
 
+# Install Brave
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install brave-browser -y
 
+# Install Pi Apps
+# Install Pi Imager, LibreOffice MS Theme, Wine, More RAM, Timeshift, and OBS Studio
+wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash
 
+# Install Flatpak and Flathub
+sudo apt install flatpak -y
+sudo apt install gnome-software-plugin-flatpak -y
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 

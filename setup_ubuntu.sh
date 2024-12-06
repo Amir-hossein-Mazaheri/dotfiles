@@ -3,6 +3,9 @@
 ##################################################
 ## It's a good to set SHECAN DNS before running ##
 
+######## For terminal font you can download Cascadia  ########
+# https://github.com/microsoft/cascadia-code/releases
+
 # Update The APT Packages List
 sudo apt update -y
 
@@ -63,7 +66,7 @@ ln -s /home/$(whoami)/.config/dotfiles/.zshrc /home/$(whoami)/.zshrc
 ln -s /home/$(whoami)/.config/dotfiles/.p10k.zsh /home/$(whoami)/.p10k.zsh
 
 # Link Kitty
-ln -s /home/$(whoami)/.config/dotfiles/.kitty.conf /home/$(whoami)/.kitty.conf
+ln -s /home/$(whoami)/.config/dotfiles/kitty.conf /home/$(whoami)/.config/kitty/kitty.conf
 
 
 # Install PyEnv
@@ -128,4 +131,9 @@ wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bas
 sudo apt install flatpak -y
 sudo apt install gnome-software-plugin-flatpak -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+# Install Perspolis DM
+sudo add-apt-repository ppa:persepolis/ppa
+sudo apt update
+sudo apt install persepolis -y
 

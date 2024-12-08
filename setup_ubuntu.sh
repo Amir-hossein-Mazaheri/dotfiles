@@ -137,3 +137,8 @@ sudo add-apt-repository ppa:persepolis/ppa
 sudo apt update
 sudo apt install persepolis -y
 
+# Install Wireshark
+sudo apt install wireshark -y
+
+
+

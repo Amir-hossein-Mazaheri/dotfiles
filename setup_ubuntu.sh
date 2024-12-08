@@ -1,6 +1,3 @@
-################################################# ATTENTIONS!!!!!!!!!!!!! ########################################################
-# DON'T RUN WITH SUDO
-##################################################
 ## It's a good to set SHECAN DNS before running ##
 
 ######## For terminal font you can download Cascadia  ########
@@ -13,8 +10,8 @@ sudo apt update -y
 sudo apt install neovim curl git gh zsh tmux build-essential neofetch htop -y
 
 # Clone Config Files
-git clone https://github.com/Amir-hossein-Mazaheri/nvim-config.git /home/$(whoami)/.config/nvim
-git clone https://github.com/Amir-hossein-Mazaheri/dotfiles.git /home/$(whoami)/.config/dotfiles
+git clone https://github.com/Amir-hossein-Mazaheri/nvim-config.git "$HOME"/.config/nvim
+git clone https://github.com/Amir-hossein-Mazaheri/dotfiles.git "$HOME"/.config/dotfiles
 
 # Install Packer for Neovim
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -28,7 +25,7 @@ sudo cp -R go/ /usr/local/
 
 # Install Kitty Terminal
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-mkdir /home/$(whoami)/.local/bin
+mkdir "$HOME"/.local/bin
 ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
 cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
 cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/applications/
@@ -40,44 +37,47 @@ echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install P10K Theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-"$HOME"/.oh-my-zsh/custom}"/themes/powerlevel10k
 
 # Installing NodeJS
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v1.39.3/install.sh | zsh
-source $HOME/.zshrc
+source "$HOME"/.zshrc
 nvm install v22.12.0
 
 # Installs Required Node Packages
 npm i -g prettier eslint yarn pnpm
 
 # Just Create a Directory!
-mkdir /home/$(whoami)/programming
+mkdir "$HOME"/programming
 
 # Remove Dotfiles Before Symlinking
 sudo rm -rf ~/.icons ~/.themes ~/.kitty.conf ~/.zshrc ~/.tmux.conf ~/p10k-zsh ~/.wallpapers
 
 # Link Icons, Themes, and Wallpapers
-ln -s /home/$(whoami)/.config/dotfiles/.icons /home/$(whoami)/.icons
-ln -s /home/$(whoami)/.config/dotfiles/.themes /home/$(whoami)/.themes
-ln -s /home/$(whoami)/.config/dotfiles/.wallpapers /home/$(whoami)/.wallpapers
+ln -s "$HOME"/.config/dotfiles/.icons "$HOME"/.icons
+ln -s "$HOME"/.config/dotfiles/.themes "$HOME"/.themes
+ln -s "$HOME"/.config/dotfiles/.wallpapers "$HOME"/.wallpapers
 
 # Link ZSH and P10K
-ln -s /home/$(whoami)/.config/dotfiles/.zshrc /home/$(whoami)/.zshrc
-ln -s /home/$(whoami)/.config/dotfiles/.p10k.zsh /home/$(whoami)/.p10k.zsh
+ln -s "$HOME"/.config/dotfiles/.zshrc "$HOME"/.zshrc
+ln -s "$HOME"/.config/dotfiles/.p10k.zsh "$HOME"/.p10k.zsh
 
 # Link Kitty
-ln -s /home/$(whoami)/.config/dotfiles/kitty.conf /home/$(whoami)/.config/kitty/kitty.conf
+ln -s "$HOME"/.config/dotfiles/kitty.conf "$HOME"/.config/kitty/kitty.conf
+
+# Link Tmux
+ln -s "$HOME"/.config/dotfiles/.tmux.conf "$HOME"/.tmux.conf
 
 
 # Install PyEnv
 sudo apt install curl git-core gcc make zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev -y
 curl https://pyenv.run | bash
-source $HOME/.zshrc
+source "$HOME"/.zshrc
 
 # Install Python 3.8 via PyEnv
 pyenv install 3.8.12
 pyenv global 3.8.12
-source $HOME/.zshrc
+source "$HOME"/.zshrc
 
 
 # Install V2rayA
@@ -110,12 +110,12 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 # Installation of ZSH Plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use
+git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git "$ZSH_CUSTOM"/plugins/you-should-use
 
 sudo apt install bat -y
-git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
+git clone https://github.com/fdellwing/zsh-bat.git "$ZSH_CUSTOM"/plugins/zsh-bat
 
 # Install Brave
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
